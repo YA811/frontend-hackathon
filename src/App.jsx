@@ -5,29 +5,24 @@ import Landing from './components/Landing/Landing';
 import Dashboard from './components/Dashboard/Dashboard';
 import SignupForm from './components/SignupForm/SignupForm';
 import SigninForm from './components/SigninForm/SigninForm';
-import * as authService from '../src/services/authService'; // import the authservice
-import * as eventService from '../src/services/eventService'; // import the event
-import EventList from './components/EventList/EventList'; // import the eventList component
-import EventDetails from './components/EventDetails/EventDetails';
-import EventForm from './components/EventForm/EventForm';
-import AttendeeForm from './components/AttendeeForm/AttendeeForm';
-
+import * as authService from '../src/services/authService'; 
+import * as productService from './services/productService'; 
+import ProductList from './components/ProductList/ProductList'; 
+import ProductDetails from './components/ProductDetails/ProductDetails';
 
 export const AuthedUserContext = createContext(null);
 
 const App = () => {
-  const [user, setUser] = useState(authService.getUser()); // using the method from authservice
+  const [user, setUser] = useState(authService.getUser()); 
 
-  const [events, setEvents] = useState([]);
+  const [products, setProducts] = useState([]);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAllEvents = async () => {
-      const eventsData = await eventService.index();
-  
-      // Set state:
-      setEvents(eventsData);
+      const productsData = await productService.index();
+      setProducts(productsData);
     };
     if (user) fetchAllEvents();
   }, [user]);
@@ -38,26 +33,6 @@ const App = () => {
     setUser(null);
   };
 
-  const handleAddEvent = async (eventFormData) => {
-    const newEvent = await eventService.create(eventFormData);
-    setEvents([newEvent, ...events]);
-    navigate('/events');
-  };
-  
-
-  const handleDeleteEvent = async (eventId) => {
-    const deletedEvent = await eventService.deleteEvent(eventId);
-    setEvents(events.filter((event) => event._id !== deletedEvent._id));
-    navigate('/events');
-  };
-
-  const handleUpdateEvent = async (eventId, eventFormData) => {
-    const updatedEvent = await eventService.update(eventId, eventFormData);
-    setEvents(events.map((event) => (eventId === event._id ? updatedEvent : event)));
-    navigate(`/events/${eventId}`);
-  };
-  
-
   return (
     <>
       <AuthedUserContext.Provider value={user}>
@@ -67,11 +42,9 @@ const App = () => {
           // Protected Routes:
           <>
             <Route path="/" element={<Dashboard user={user} />} />
-            <Route path="/events" element={<EventList events={events} />} />
-            <Route path="/events/new" element={<EventForm handleAddEvent={handleAddEvent} />} />
-            <Route path="/events/:eventId" element={<EventDetails handleDeleteEvent={handleDeleteEvent} />} />
-            <Route path="/events/:eventId/edit" element={<EventForm handleUpdateEvent={handleUpdateEvent}/>} />
-            <Route path="/events/:eventId/attendees/:attendeeId/edit" element={<AttendeeForm />} />
+            <Route path="/products" element={<ProductList events={events} />} />
+            <Route path="/products/:productId" element={<ProductDetails />} />
+            <Route path="/products/:productId/comments/commentId/edit" element={<CommentForm />} />
           </>
         ) : (
           // Public Route:
