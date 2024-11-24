@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom';
 import { AuthedUserContext } from '../../App';
 import { useState, useEffect, useContext } from 'react';
 import * as eventService from '../../services/eventService';
-import AttendeeForm from '../AttendeeForm/AttendeeForm';
 import { Link } from 'react-router-dom';
 import './EventDetail.css';
 
