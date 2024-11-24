@@ -6,8 +6,8 @@ const Dashboard = ({}) => {
   const user = useContext(AuthedUserContext);
   return (
   <main className="welcome-container">
-    <h1 className="welcome-title">Welcome to EVENZO, {user.username}</h1>
-    <p className="welcome-message">You’ve got this! Planning your dream event starts here.</p>
+    <h1 className="welcome-title">Welcome to Eco Nest, {user.username}</h1>
+    <p className="welcome-message">Style That Doesn't Cost the Earth</p>
   </main>
 
   );
