@@ -1,63 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Homemade+Apple&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Satisfy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Fugaz+One&family=Homemade+Apple&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lemon&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Righteous&family=Satisfy&family=Viga&family=Yatra+One&display=swap');
-.intro-container {
-    background-image: url('/public/pexels-photo-5594266.webp');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    padding: 40px;
-    text-align: center;
-    box-sizing: border-box;
-    animation: fadeInUp 1.2s ease-out;
-  }
-  .intro-title {
-    font-family: "Yatra One", serif;
-    font-size: 6rem;
-    font-weight: 800;
-    color: rgb(138, 126, 110); 
-    margin-bottom: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    opacity: 0;
-    animation: fadeInUp 1.5s ease-out 0.5s forwards;
-  }
-  .intro-subtitle {
-    font-family:"Lobster Two", sans-serif ;
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: rgb(44, 38, 29); 
-    margin-bottom: 2.5rem;
-    line-height: 1.4;
-    opacity: 0;
-    animation: fadeInUp 1.5s ease-out 1s forwards;
-  }
-  .intro-description {
-    font-family:"Lobster Two", sans-serif ;
-    font-size: 1.7rem;
-    font-weight: 300;
-    color:rgb(44, 38, 29); 
-    max-width: 750px;
-    margin-top: 1.5rem auto;
-    opacity: 0;
-    animation: fadeInUp 1.5s ease-out 1.5s forwards;
-    line-height: 1.6;
-    padding: 20px 20px;
-  }
 
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+.intro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background-image:url('/public/vertical-wall-garden-interior-design-600nw-2185898325.webp');/* Add the background image path */
+  background-size: cover;
+  background-position: center;
+  font-family: 'Arial', sans-serif;
+  background-color: #e8f5e9; /* Light green background */
+  margin: 0;
+  padding: 0;
+}
+
+.intro-title {
+  font-size: 4rem;
+  color: #e8f5e9; /* Dark green */
+  margin-bottom: 1rem;
+}
+
+.intro-subtitle {
+  font-size: 1.5rem;
+  color: darkolivegreen; /* Medium green */
+  margin-bottom: 0.5rem;
+}
+
+.intro-description {
+  font-size: 1.2rem;
+  color:darkolivegreen; /* Light green */
+  margin-bottom: 1rem;
+}
+
+.intro-shopnow-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.intro-shopnow {
+  font-size: 1.5rem;
+  color: #ffffff; /* White text */
+  background-color: darkolivegreen; /* Matching green button */
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border: 2px solid darkolivegreen;
+  border-radius: 5px;
+  text-decoration: none;
+}
