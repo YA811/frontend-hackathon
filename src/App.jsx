@@ -21,11 +21,11 @@ const App = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchAllEvents = async () => {
+    const fetchAllProducts = async () => {
       const productsData = await productService.index();
       setProducts(productsData);
     };
-    if (user) fetchAllEvents();
+    if (user) fetchAllProducts();
   }, [user]);
   
 

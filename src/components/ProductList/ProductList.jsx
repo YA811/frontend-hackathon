@@ -1,20 +1,16 @@
 import { Link } from 'react-router-dom';
 
+const ProductList = (props) => {
 
-const EventList = (props) => {
-
-  if (props.events.length === 0) return <h4>No events added yet.</h4>;
+  if (props.products.length === 0) return <h4>No products added yet.</h4>;
 
   return (
     <main className="event-list-container">
-      {props.events.map((event) => (
-        <Link key={event._id} to={`/events/${event._id}`} className="event-list-item">
-          <article className="event-list-card">
-            <header className="event-list-header">
-              <h2 className="event-list-title">{event.title}</h2>
-              <p className="event-list-date">
-                on {event.date.split('T')[0]}, at {event.date.split('T')[1].split('.')[0]}
-              </p>
+      {props.products.map((product) => (
+        <Link key={product._id} to={`/products/${product._id}`}>
+          <article>
+            <header>
+              <h2>{product.product_name}</h2>
             </header>
           </article>
         </Link>
@@ -23,4 +19,4 @@ const EventList = (props) => {
   );
 };
   
-  export default EventList;
+  export default ProductList;

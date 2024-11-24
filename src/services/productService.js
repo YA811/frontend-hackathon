@@ -13,9 +13,9 @@ export const index = async () => {
     }
 };
 
-export const show = async (eventId) => {
+export const show = async (productId) => {
   try {
-    const res = await fetch(`${BASE_URL}/${eventId}`, {
+    const res = await fetch(`${BASE_URL}/${productId}`, {
       headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
     });
     return res.json();
@@ -24,25 +24,9 @@ export const show = async (eventId) => {
   }
 };
 
-export const create = async (eventFormData) => {
-    try {
-      const res = await fetch(BASE_URL, {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(eventFormData),
-      });
-      return res.json();
-    } catch (error) {
-      console.log(error);
-    }
-};
-
-export const createAttendee = async (eventId, attendeeFormData) => {
+export const createComment = async (productId, commentFormData) => {
   try {
-    const res = await fetch(`${BASE_URL}/${eventId}/attendees`, {
+    const res = await fetch(`${BASE_URL}/${productId}/comments`, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -56,39 +40,9 @@ export const createAttendee = async (eventId, attendeeFormData) => {
   }
 };
   
-export const deleteEvent = async (eventId) => {
-    try {
-      const res = await fetch(`${BASE_URL}/${eventId}`, {
-        method: 'DELETE',
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      });
-      return res.json();
-    } catch (error) {
-      console.log(error);
-    }
-};
-
-export async function update(eventId, eventFormData) {
+export const deleteComment = async (productId, commentId) => {
   try {
-    const res = await fetch(`${BASE_URL}/${eventId}`, {
-      method: 'PUT',
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(eventFormData),
-    });
-    return res.json();
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const deleteAttendee = async (eventId, attendeeId) => {
-  try {
-    const res = await fetch(`${BASE_URL}/${eventId}/attendees/${attendeeId}`, {
+    const res = await fetch(`${BASE_URL}/${productId}/comments/${commentId}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
@@ -100,15 +54,15 @@ export const deleteAttendee = async (eventId, attendeeId) => {
   }
 };
 
-export const updateAttendee = async (eventId, attendeeId, attendeeFormData) => {
+export const updateComment = async (productId, commentId, commentFormData) => {
   try {
-    const res = await fetch(`${BASE_URL}/${eventId}/attendees/${attendeeId}`, {
+    const res = await fetch(`${BASE_URL}/${productId}/comments/${commentId}`, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(attendeeFormData)
+      body: JSON.stringify(commentFormData)
     });
     return res.json();
   } catch (error) {
