@@ -13,8 +13,7 @@ const NavBar = ({ handleSignout }) => {
         {user ? (
           <>
             <li className="navbar__item"><Link to="/" className="navbar__link">HOME</Link></li>
-            <li className="navbar__item"><Link to="/events" className="navbar__link">Events</Link></li>
-            <li className="navbar__item"><Link to="/events/new" className="navbar__link">NEW Event</Link></li>
+            <li className="navbar__item"><Link to="/products" className="navbar__link">products</Link></li>
             <li className="navbar__item">
               <Link to="/" onClick={handleSignout} className="navbar__link navbar__signout">SIGN OUT</Link>
             </li>
