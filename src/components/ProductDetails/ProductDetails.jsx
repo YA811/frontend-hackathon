@@ -3,7 +3,6 @@ import { AuthedUserContext } from '../../App';
 import { useState, useEffect, useContext } from 'react';
 import * as eventService from '../../services/productService';
 import { Link } from 'react-router-dom';
-import './EventDetail.css';
 
 const EventDetails = (props) => {
     const { eventId } = useParams();

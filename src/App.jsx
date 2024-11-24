@@ -9,6 +9,7 @@ import * as authService from '../src/services/authService';
 import * as productService from './services/productService'; 
 import ProductList from './components/ProductList/ProductList'; 
 import ProductDetails from './components/ProductDetails/ProductDetails';
+import CommentForm from './components/CommentForm/CommentForm';
 
 export const AuthedUserContext = createContext(null);
 
@@ -42,7 +43,7 @@ const App = () => {
           // Protected Routes:
           <>
             <Route path="/" element={<Dashboard user={user} />} />
-            <Route path="/products" element={<ProductList events={events} />} />
+            <Route path="/products" element={<ProductList products={products} />} />
             <Route path="/products/:productId" element={<ProductDetails />} />
             <Route path="/products/:productId/comments/commentId/edit" element={<CommentForm />} />
           </>
